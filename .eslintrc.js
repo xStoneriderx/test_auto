@@ -64,6 +64,7 @@ module.exports = {
     'jsx-a11y/label-has-associated-control': 'off',
     'react/no-access-state-in-setstate': 'warn',
     'react/button-has-type': 'off',
-    'react/no-danger': 'off'
+    'react/no-danger': 'off',
+    'react/forbid-prop-types': 'off'
   }
 };
