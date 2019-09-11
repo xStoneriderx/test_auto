@@ -6,9 +6,9 @@ function App() {
   return (
     <div className="App">
       <h2>The story of 3 dropdowns</h2>
-      <Dropdown label="Услуги" items={[]} />
-      <Dropdown label="Бренды" items={[]} />
-      <Dropdown label="Стили" items={[]} />
+      <Dropdown label="Услуги" url="search/terms" />
+      <Dropdown label="Бренды" url="" />
+      <Dropdown label="Стили" url="" />
     </div>
   );
 }
