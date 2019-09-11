@@ -13,9 +13,25 @@ export const fetchList = url => {
 };
 
 const Dropdown = props => {
-  const { label, url } = props;
+  const { label, url, name, onFilterChange } = props;
 
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState([
+    {
+      id: 1,
+      slug: 'test',
+      label: 'test'
+    },
+    {
+      id: 2,
+      slug: 'test2',
+      label: 'test2'
+    },
+    {
+      id: 3,
+      slug: 'test3',
+      label: 'test3'
+    }
+  ]);
 
   useEffect(() => {
     if (url) {
@@ -28,7 +44,7 @@ const Dropdown = props => {
   return (
     <div>
       {label && <span className={styles.label}>{label}</span>}
-      <select>
+      <select onChange={e => onFilterChange(name, e.target.value)}>
         {items.map(i => (
           <option key={i.id} value={i.slug}>
             {i.label}
@@ -41,7 +57,9 @@ const Dropdown = props => {
 
 Dropdown.propTypes = {
   label: PropTypes.string,
-  url: PropTypes.string
+  url: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  onFilterChange: PropTypes.func.isRequired
 };
 
 Dropdown.defaultProps = {};
