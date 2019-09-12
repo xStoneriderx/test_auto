@@ -1,5 +1,5 @@
 <h2>To run app</h2>
-0) Be sure, that `npm` is installed<br />
+0) Be sure, that `<npm>` is installed<br />
 1) Clone repo<br />
 2) Run `npm i` (this step can take some time)<br />
 3) Run `npm start`<br />
