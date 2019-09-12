@@ -1,17 +1,12 @@
 module.exports = {
   parser: 'babel-eslint',
-  plugins: ['jest'],
-  extends: [
-    'react-app',
-    'airbnb',
-    'plugin:jest/recommended',
-    'prettier',
-    'prettier/react'
-  ],
+  plugins: ['cypress'],
+  extends: ['react-app', 'airbnb', 'prettier', 'prettier/react'],
   env: {
     browser: true,
     es6: true,
-    commonjs: true
+    commonjs: true,
+    'cypress/globals': true
   },
   globals: {
     expect: 'false',
