@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import styles from './styles.module.css';
 import { getRequestInstance } from '../../data/api';
 
@@ -13,38 +14,36 @@ export const fetchList = url => {
 };
 
 const Dropdown = props => {
-  const { label, url, name, onFilterChange } = props;
+  const { label, url, name, onFilterChange, query } = props;
 
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      slug: 'test',
-      label: 'test'
-    },
-    {
-      id: 2,
-      slug: 'test2',
-      label: 'test2'
-    },
-    {
-      id: 3,
-      slug: 'test3',
-      label: 'test3'
-    }
-  ]);
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (url) {
+      setLoading(true);
       fetchList(url)
-        .then(res => setItems(res))
-        .catch(error => Promise.reject(error));
+        .then(res => {
+          setItems(res);
+          setLoading(false);
+        })
+        .catch(error => {
+          setLoading(false);
+          return Promise.reject(error);
+        });
     }
   }, []);
 
   return (
     <div>
       {label && <span className={styles.label}>{label}</span>}
-      <select onChange={e => onFilterChange(name, e.target.value)}>
+      <select
+        disabled={loading}
+        className={classNames(styles.select, { [styles.loading]: loading })}
+        value={query[name]}
+        onChange={e => onFilterChange(name, e.target.value)}
+      >
+        <option>Не выбрано</option>
         {items.map(i => (
           <option key={i.id} value={i.slug}>
             {i.label}
@@ -59,7 +58,8 @@ Dropdown.propTypes = {
   label: PropTypes.string,
   url: PropTypes.string,
   name: PropTypes.string.isRequired,
-  onFilterChange: PropTypes.func.isRequired
+  onFilterChange: PropTypes.func.isRequired,
+  query: PropTypes.object.isRequired
 };
 
 Dropdown.defaultProps = {};

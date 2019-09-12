@@ -3,3 +3,13 @@
   width: 50px;
   font-size: 14px;
 }
+
+.select {
+  min-width: 160px;
+  border-radius: 5px;
+}
+
+.loading {
+  opacity: 0.2;
+  background: url('./loader.gif') no-repeat;
+}
