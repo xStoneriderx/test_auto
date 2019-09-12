@@ -1,13 +1,11 @@
-<h2>To run app</h2>
+# To run app
 0) Be sure, that `npm` is installed<br />
 1) Clone repo<br />
 2) Run `npm i` (this step can take some time)<br />
 3) Run `npm start`<br />
 
-<h2>To run Cypress tests:</h2>
-1) Clone repo<br />
-2) Run `npm i` (this step can take some time)<br />
-3) Run `npm start`<br />
-4) In another terminal run `npm run cypress`<br />
-5) In opened window click "Run all specs"<br />
-
+# To run Cypress tests:
+1) Run `npm i` (this step can take some time)<br />
+2) Run `npm start`<br />
+3) In another terminal run `npm run cypress`<br />
+4) In opened window click `Run all specs`<br />
