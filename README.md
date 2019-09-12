@@ -10,3 +10,4 @@
 3) Run **npm start**<br />
 4) In another terminal run **npm run cypress**<br />
 5) In opened window click "Run all specs"<br />
+
